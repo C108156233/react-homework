@@ -1,7 +1,6 @@
 import React from "react";
 
-class App extends React.Component {
-render() {
+function App(){
     return (
     <div>
         <Header />
@@ -9,18 +8,15 @@ render() {
     </div>
     );
 }
-}
-class Header extends React.Component {
-render() {
+function Header(){
     return (
     <div>
         <h1>Header</h1>
     </div>
     );
 }
-}
-class Content extends React.Component {
-render() {
+
+function Content(){
     return (
     <div>
         <h2>Content</h2>
@@ -28,5 +24,5 @@ render() {
     </div>
     );
 }
-}
+
 export default App;
