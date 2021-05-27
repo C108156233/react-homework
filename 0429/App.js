@@ -1,20 +1,17 @@
 import React from 'react';
-
 class App extends React.Component {
   constructor(props) {
      super(props);
-     this.state = {
-        data: '初始資料，來自父元件 this.state'
-     }
-     //this.updateState = this.updateState.bind(this);
+     this.state = {data: '預設資料...'};
+     this.updateState = this.updateState.bind(this);
   };
-  updateState=()=> {
-     this.setState({data: '子元件使用父元件 event 改變父元件 state'})
+  updateState(e) {
+     this.setState({data: e.target.value});
   }
   render() {
      return (
         <div>
-           <Content updateStateProp = {this.updateState} myDataProp = {this.state.data}></Content>
+           <Content myDataProp = {this.state.data} updateStateProp = {this.updateState} />
         </div>
      );
   }
@@ -23,7 +20,7 @@ class Content extends React.Component {
   render() {
      return (
         <div>
-           <button onClick = {this.props.updateStateProp}>我是Content子元件的按鈕</button>
+           <input type = "text" value = {this.props.myDataProp} onChange = {this.props.updateStateProp} />
            <h3>{this.props.myDataProp}</h3>
         </div>
      );
